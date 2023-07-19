@@ -4,10 +4,12 @@ function atbashCipher(cipherText: string): string {
     let result = "";
   
     for (let i = 0; i < cipherText.length; i++) {
-      const character = cipherText[i].toLowerCase();
-      const index = plain.indexOf(character);
+      const character = cipherText[i];
+      const lowerCaseCharacter = character.toLowerCase();
+      const index = plain.indexOf(lowerCaseCharacter);
       if (index !== -1) {
-        result += cipher[index];
+        const cipherCharacter = cipher[index];
+        result += character === lowerCaseCharacter ? cipherCharacter : cipherCharacter.toUpperCase();
       } else {
         result += character;
       }
@@ -16,7 +18,6 @@ function atbashCipher(cipherText: string): string {
     return result;
   }
   
-
   console.log(atbashCipher("Olivn rkhfn wloli hrg znvg")); 
   console.log(atbashCipher("Svool dliow! R'n ovzimrmt gbkvhxirkg!")); 
   console.log(atbashCipher("Gsv jfrxp yildm ulc qfnkh levi gsv ozab wlt")); 
